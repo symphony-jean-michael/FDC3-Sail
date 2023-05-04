@@ -10,7 +10,7 @@ import {
   convertTarget,
   setInstanceId,
   getEventQ,
-  INTENT_TIMEOUT,
+  //INTENT_TIMEOUT,
 } from '../lib/lib';
 import {
   AppIntent,
@@ -25,7 +25,7 @@ import {
   IntentResolution,
   AppIdentifier,
   AppMetadata,
-  ResolveError,
+  //ResolveError,
   IntentResult,
 } from '@finos/fdc3';
 import { ChannelData } from '/@main/types/Channel';
@@ -478,7 +478,7 @@ export const createAPI = (): DesktopAgent => {
   ): Promise<IntentResolution> {
     return new Promise((resolve, reject) => {
       console.log('***** raise intent ', intent);
-      let intentTimeout = -1;
+      const intentTimeout = -1;
       //listen for resolve intent
       document.addEventListener(
         FDC3_2_0_TOPICS.RESOLVE_INTENT,
@@ -556,9 +556,9 @@ export const createAPI = (): DesktopAgent => {
       );
 
       //timeout the intent resolution
-      intentTimeout = window.setTimeout(() => {
+      /*intentTimeout = window.setTimeout(() => {
         reject(new Error(ResolveError.ResolverTimeout));
-      }, INTENT_TIMEOUT);
+      }, INTENT_TIMEOUT);*/
     });
   }
 
